@@ -1,24 +1,16 @@
-# vue-emo-back
-
-## Project setup
+# vue-admin
+>#### 描述：一个线上社区团购的后台
+## 项目启动步骤
+### 安装依赖
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
+### 进入到server文件夹,cmd打开使用如下命令启动服务端
+```
+json-server --watch .\data.json
+```
+### 编译运行
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+>项目未成形，持续赶工中 ......
