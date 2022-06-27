@@ -1,29 +1,40 @@
 <template>
-    <el-container style="height: 100%; border: 1px solid #eee">
-        <el-header style="font-size: 12px">
-            <div class="emo-header">社区团购管理后台</div>
-            <div>
-                <el-dropdown>
-                    <i
-                        class="el-icon-setting"
-                        style="margin-right: 15px; color: aliceblue"
-                    ></i>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>查看</el-dropdown-item>
-                        <el-dropdown-item>新增</el-dropdown-item>
-                        <el-dropdown-item>删除</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-                <span>王小虎</span>
+    <el-container
+        style="
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+            position: relative;
+        "
+    >
+        <el-header>
+            <div
+                class="logo"
+                style="width: 200px; background: #1e1e1e; color: white"
+            >
+                社区团购
             </div>
+            <div class="header">header</div>
         </el-header>
-        <el-container style="height: 80%">
-            <el-aside width="200px" style="background-color: #545c64">
+        <el-container style="height: 100%">
+            <el-aside width="200px">
+                <!-- <div
+                    style="
+                        background: yellow;
+                        width: 200px;
+                        height: 100%;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        box-shadow: 2px 0 2px rgb(0 0 0 / 5%);
+                    "
+                > -->
                 <el-menu
-                    :default-openeds="['1', '3']"
+                    default-active="/"
+                    class="el-menu-vertical-demo"
                     background-color="#545c64"
                     text-color="#fff"
                     active-text-color="#ffd04b"
+                    router
                 >
                     <el-menu-item index="/">
                         <i class="el-icon-s-home"></i>
@@ -79,351 +90,289 @@
                     </el-menu-item>
                     <el-menu-item index="/setting">
                         <i class="el-icon-setting"></i>
-                        <span slot="title"> 设置 </span>
+                        <span slot="title"> 11 </span>
                     </el-menu-item>
                     <el-menu-item index="/setting">
                         <i class="el-icon-setting"></i>
-                        <span slot="title"> 设置 </span>
+                        <span slot="title"> 11 </span>
                     </el-menu-item>
                     <el-menu-item index="/setting">
                         <i class="el-icon-setting"></i>
-                        <span slot="title"> 设置 </span>
+                        <span slot="title"> 11 </span>
+                    </el-menu-item>
+                    <el-menu-item index="/setting">
+                        <i class="el-icon-setting"></i>
+                        <span slot="title"> 44 </span>
+                    </el-menu-item>
+                    <el-menu-item index="/setting">
+                        <i class="el-icon-setting"></i>
+                        <span slot="title"> hello a </span>
                     </el-menu-item>
                 </el-menu>
+                <!-- </div> -->
             </el-aside>
-
             <el-container>
-                <el-main>
-                    <el-table
-                        :data="tableData"
-                        style="width: 80%"
-                        max-height="560"
+                <el-main
+                    style="
+                        position: absolute;
+                        bottom: 60;
+                        width: calc(100% - 200px);
+                        height: calc(100% - 120px);
+                    "
+                >
+                    <div
+                        class="left"
+                        style="
+                            width: 160px;
+                            background: #ffffff;
+                            height: 100%;
+                            float: left;
+                            overflow-x: hidden;
+                            overflow-y: auto;
+                            box-shadow: 2px 0 2px rgb(0 0 0 / 5%);
+                        "
                     >
-                        <el-table-column
-                            fixed
-                            prop="date"
-                            label="日期"
-                            width="150"
+                        <el-menu
+                            default-active="/"
+                            class="el-menu-vertical-demo"
+                            router
                         >
-                        </el-table-column>
-                        <el-table-column prop="name" label="姓名" width="120">
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column
-                            prop="province"
-                            label="省份"
-                            width="120"
-                        >
-                        </el-table-column>
-                        <el-table-column prop="city" label="市区" width="120">
-                        </el-table-column>
-                        <el-table-column
-                            prop="address"
-                            label="地址"
-                            width="300"
-                        >
-                        </el-table-column>
-                        <el-table-column prop="zip" label="邮编" width="120">
-                        </el-table-column>
-                        <el-table-column fixed="right" label="操作" width="120">
-                            <template slot-scope="scope">
-                                <el-button
-                                    @click.native.prevent="
-                                        deleteRow(scope.$index, tableData)
-                                    "
-                                    type="text"
-                                    size="small"
-                                >
-                                    移除
-                                </el-button>
-                            </template>
-                        </el-table-column>
-                    </el-table>
-                    <emo-pagination class="emo-pagination" />
+                            <el-submenu index="/authority">
+                                <template slot="title">
+                                    <span style="font-weight: bold"
+                                        >权限管理</span
+                                    >
+                                </template>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/exit"
+                                        >退出权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/login"
+                                        >登陆权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/edit"
+                                        >编辑权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/delete"
+                                        >删除权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                            </el-submenu>
+                            <el-divider></el-divider>
+                            <el-submenu index="/authority">
+                                <template slot="title">
+                                    <span style="font-weight: bold"
+                                        >权限管理</span
+                                    >
+                                </template>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/exit"
+                                        >退出权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/login"
+                                        >登陆权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/edit"
+                                        >编辑权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/delete"
+                                        >删除权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                            </el-submenu>
+                            <el-divider></el-divider>
+                            <el-submenu index="/authority">
+                                <template slot="title">
+                                    <span style="font-weight: bold"
+                                        >权限管理</span
+                                    >
+                                </template>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/exit"
+                                        >退出权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/login"
+                                        >登陆权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/edit"
+                                        >编辑权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/delete"
+                                        >删除权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                            </el-submenu>
+                            <el-divider></el-divider>
+                            <el-submenu index="/authority">
+                                <template slot="title">
+                                    <span style="font-weight: bold"
+                                        >权限管理</span
+                                    >
+                                </template>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/exit"
+                                        >退出权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/login"
+                                        >登陆权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/edit"
+                                        >编辑权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/delete"
+                                        >删除权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                            </el-submenu>
+                            <el-divider></el-divider>
+                            <el-submenu index="/authority">
+                                <template slot="title">
+                                    <span style="font-weight: bold"
+                                        >权限管理</span
+                                    >
+                                </template>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/exit"
+                                        >退出权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/login"
+                                        >登陆权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/edit"
+                                        >编辑权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/delete"
+                                        >删除2权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                                <el-menu-item-group>
+                                    <el-menu-item index="/authority/edit"
+                                        >编辑权限</el-menu-item
+                                    >
+                                    <el-menu-item index="/authority/delete"
+                                        >删除25权限</el-menu-item
+                                    >
+                                </el-menu-item-group>
+                            </el-submenu>
+                        </el-menu>
+                    </div>
+                    <div
+                        class="right"
+                        style="
+                            height: 100%;
+                            width: calc(100% - 160px);
+                            float: right;
+                            overflow-y: auto;
+                        "
+                    >
+                        <div style="margin: 8px">
+                            <emo-table />
+                        </div>
+                    </div>
                 </el-main>
-                <el-footer>Footer</el-footer>
+                <el-footer
+                    style="
+                        position: absolute;
+                        bottom: 0;
+                        width: calc(100% - 200px);
+                    "
+                >
+                    footer
+                </el-footer>
             </el-container>
         </el-container>
     </el-container>
 </template>
 
 <script>
-import EmoPagination from "@/components/pagination/index.vue";
+import EmoTable from "@/components/table/index";
 export default {
     name: "EmoLayout",
     components: {
-        EmoPagination,
+        EmoTable,
     },
     methods: {
-        deleteRow(index, rows) {
-            rows.splice(index, 1);
+        handleOpen(key, keyPath) {
+            console.log(key, keyPath);
         },
-    },
-    data() {
-        return {
-            tableData: [
-                {
-                    date: "2016-05-03",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-04",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-01",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-08",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-06",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-07",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-07",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-07",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-07",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-                {
-                    date: "2016-05-07",
-                    name: "王小虎",
-                    province: "上海",
-                    city: "普陀区",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    zip: 200333,
-                },
-            ],
-        };
+        handleClose(key, keyPath) {
+            console.log(key, keyPath);
+        },
     },
 };
 </script>
 
 <style lang="less" scoped>
-.el-header {
-    background-color: #252526;
-    color: aliceblue;
+.el-main .el-divider--horizontal {
+    margin: 0;
+}
+.el-main .el-submenu {
+    width: 160px;
+    text-align: left;
+}
+.el-main .el-menu-item-group {
+    width: 160px;
+}
+.el-aside .el-menu-item {
+    text-align: left;
+    width: 200px;
+}
+.el-main .el-menu-item {
+    text-align: left;
+    width: 160px;
+    line-height: 40px;
+    padding-left: 20px !important;
+}
+.el-main .el-menu .el-submenu__title {
+    padding: 0 !important;
+}
+.el-footer {
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
     line-height: 60px;
+    padding: 0;
+    box-shadow: 0 -2px 2px rgb(0 0 0 / 5%);
+}
+.el-header {
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+    padding: 0;
     display: flex;
     justify-content: space-between;
+    .header {
+        flex-grow: 1;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+    }
 }
-
 .el-aside {
+    background-color: #545c64;
     color: #333;
-    overflow-x: hidden;
+    text-align: center;
+    line-height: 200px;
+    overflow-y: auto;
+    height: calc(100% - 60px);
 }
 .el-aside::-webkit-scrollbar {
     display: none;
 }
-.el-footer {
-    background-color: #b3c0d1;
+.el-main {
+    background-color: #e9eef3;
     color: #333;
     text-align: center;
-    line-height: 60px;
-}
-.el-main {
-    height: 100%;
+    line-height: 160px;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-.emo-header {
-    width: 179px;
-    line-height: 60px;
-    color: aliceblue;
-    border-right: 1px snow solid;
-}
-.emo-pagination {
-    margin: 10px 12px 10px 0;
 }
 </style>
