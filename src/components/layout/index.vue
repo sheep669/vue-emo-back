@@ -14,7 +14,24 @@
             >
                 社区团购
             </div>
-            <div class="header">header</div>
+            <div class="header">
+                <el-tooltip effect="dark" content="打开全屏" placement="left">
+                    <i
+                        v-show="fullscreen === false"
+                        class="el-icon-full-screen"
+                        @click="fullOrEscScreen"
+                        style="font-size: 25px; font-weight: 600"
+                    ></i>
+                </el-tooltip>
+                <el-tooltip effect="dark" content="退出全屏" placement="right">
+                    <i
+                        v-show="fullscreen === true"
+                        class="el-icon-rank"
+                        @click="fullOrEscScreen"
+                        style="font-size: 25px; font-weight: 600"
+                    ></i>
+                </el-tooltip>
+            </div>
         </el-header>
         <el-container style="height: 100%">
             <el-aside width="200px">
@@ -120,169 +137,177 @@
                         height: calc(100% - 120px);
                     "
                 >
-                    <div
-                        class="left"
-                        style="
-                            width: 160px;
-                            background: #ffffff;
-                            height: 100%;
-                            float: left;
-                            overflow-x: hidden;
-                            overflow-y: auto;
-                            box-shadow: 2px 0 2px rgb(0 0 0 / 5%);
-                        "
-                    >
-                        <el-menu
-                            default-active="/"
-                            class="el-menu-vertical-demo"
-                            router
+                    <slot name="main_content">
+                        <div
+                            class="left"
+                            style="
+                                width: 160px;
+                                background: #ffffff;
+                                height: calc(100% - 2px);
+                                float: left;
+                                overflow-x: hidden;
+                                overflow-y: auto;
+                                border-top: 2px solid rgb(0 0 0 / 5%);
+                            "
                         >
-                            <el-submenu index="/authority">
-                                <template slot="title">
-                                    <span style="font-weight: bold"
-                                        >权限管理</span
-                                    >
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/exit"
-                                        >退出权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/login"
-                                        >登陆权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/edit"
-                                        >编辑权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/delete"
-                                        >删除权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                            </el-submenu>
-                            <el-divider></el-divider>
-                            <el-submenu index="/authority">
-                                <template slot="title">
-                                    <span style="font-weight: bold"
-                                        >权限管理</span
-                                    >
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/exit"
-                                        >退出权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/login"
-                                        >登陆权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/edit"
-                                        >编辑权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/delete"
-                                        >删除权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                            </el-submenu>
-                            <el-divider></el-divider>
-                            <el-submenu index="/authority">
-                                <template slot="title">
-                                    <span style="font-weight: bold"
-                                        >权限管理</span
-                                    >
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/exit"
-                                        >退出权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/login"
-                                        >登陆权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/edit"
-                                        >编辑权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/delete"
-                                        >删除权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                            </el-submenu>
-                            <el-divider></el-divider>
-                            <el-submenu index="/authority">
-                                <template slot="title">
-                                    <span style="font-weight: bold"
-                                        >权限管理</span
-                                    >
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/exit"
-                                        >退出权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/login"
-                                        >登陆权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/edit"
-                                        >编辑权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/delete"
-                                        >删除权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                            </el-submenu>
-                            <el-divider></el-divider>
-                            <el-submenu index="/authority">
-                                <template slot="title">
-                                    <span style="font-weight: bold"
-                                        >权限管理</span
-                                    >
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/exit"
-                                        >退出权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/login"
-                                        >登陆权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/edit"
-                                        >编辑权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/delete"
-                                        >删除2权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                                <el-menu-item-group>
-                                    <el-menu-item index="/authority/edit"
-                                        >编辑权限</el-menu-item
-                                    >
-                                    <el-menu-item index="/authority/delete"
-                                        >删除25权限</el-menu-item
-                                    >
-                                </el-menu-item-group>
-                            </el-submenu>
-                        </el-menu>
-                    </div>
-                    <div
-                        class="right"
-                        style="
-                            height: 100%;
-                            width: calc(100% - 160px);
-                            float: right;
-                            overflow-y: auto;
-                        "
-                    >
-                        <div style="margin: 8px">
-                            <emo-table />
+                            <el-menu
+                                default-active="/"
+                                class="el-menu-vertical-demo"
+                                router
+                            >
+                                <el-submenu index="/authority">
+                                    <template slot="title">
+                                        <span style="font-weight: bold"
+                                            >权限管理</span
+                                        >
+                                    </template>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/exit"
+                                            >退出权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/login"
+                                            >登陆权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/edit"
+                                            >编辑权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/delete"
+                                            >删除权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                </el-submenu>
+                                <el-divider></el-divider>
+                                <el-submenu index="/authority">
+                                    <template slot="title">
+                                        <span style="font-weight: bold"
+                                            >权限管理</span
+                                        >
+                                    </template>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/exit"
+                                            >退出权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/login"
+                                            >登陆权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/edit"
+                                            >编辑权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/delete"
+                                            >删除权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                </el-submenu>
+                                <el-divider></el-divider>
+                                <el-submenu index="/authority">
+                                    <template slot="title">
+                                        <span style="font-weight: bold"
+                                            >权限管理</span
+                                        >
+                                    </template>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/exit"
+                                            >退出权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/login"
+                                            >登陆权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/edit"
+                                            >编辑权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/delete"
+                                            >删除权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                </el-submenu>
+                                <el-divider></el-divider>
+                                <el-submenu index="/authority">
+                                    <template slot="title">
+                                        <span style="font-weight: bold"
+                                            >权限管理</span
+                                        >
+                                    </template>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/exit"
+                                            >退出权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/login"
+                                            >登陆权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/edit"
+                                            >编辑权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/delete"
+                                            >删除权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                </el-submenu>
+                                <el-divider></el-divider>
+                                <el-submenu index="/authority">
+                                    <template slot="title">
+                                        <span style="font-weight: bold"
+                                            >权限管理</span
+                                        >
+                                    </template>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/exit"
+                                            >退出权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/login"
+                                            >登陆权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/edit"
+                                            >编辑权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/delete"
+                                            >删除2权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                    <el-menu-item-group>
+                                        <el-menu-item index="/authority/edit"
+                                            >编辑权限</el-menu-item
+                                        >
+                                        <el-menu-item index="/authority/delete"
+                                            >删除25权限</el-menu-item
+                                        >
+                                    </el-menu-item-group>
+                                </el-submenu>
+                            </el-menu>
                         </div>
-                    </div>
+                        <div
+                            class="right"
+                            style="
+                                height: 100%;
+                                width: calc(100% - 160px);
+                                float: right;
+                                overflow-y: auto;
+                            "
+                        >
+                            <el-card
+                                shadow="always"
+                                body-style="0px"
+                                style="margin: 8px"
+                            >
+                                <emo-table />
+                                <emo-pagination style="margin-top: 15px" />
+                            </el-card>
+                        </div>
+                    </slot>
                 </el-main>
                 <el-footer
                     style="
                         position: absolute;
+                        left: 200px;
                         bottom: 0;
                         width: calc(100% - 200px);
                     "
@@ -296,10 +321,17 @@
 
 <script>
 import EmoTable from "@/components/table/index";
+import EmoPagination from "@/components/pagination/index";
 export default {
     name: "EmoLayout",
     components: {
         EmoTable,
+        EmoPagination,
+    },
+    data() {
+        return {
+            fullscreen: false,
+        };
     },
     methods: {
         handleOpen(key, keyPath) {
@@ -307,6 +339,36 @@ export default {
         },
         handleClose(key, keyPath) {
             console.log(key, keyPath);
+        },
+        fullOrEscScreen() {
+            let element = document.documentElement;
+            // 判断是否已经是全屏
+            // 如果是全屏，退出
+            if (this.fullscreen) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            } else {
+                // 否则，进入全屏
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.webkitRequestFullScreen) {
+                    element.webkitRequestFullScreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.msRequestFullscreen) {
+                    // IE11
+                    element.msRequestFullscreen();
+                }
+            }
+            // 改变当前全屏状态
+            this.fullscreen = !this.fullscreen;
         },
     },
 };
@@ -354,14 +416,12 @@ export default {
     justify-content: space-between;
     .header {
         flex-grow: 1;
-        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
     }
 }
 .el-aside {
     background-color: #545c64;
     color: #333;
     text-align: center;
-    line-height: 200px;
     overflow-y: auto;
     height: calc(100% - 60px);
 }
@@ -372,7 +432,6 @@ export default {
     background-color: #e9eef3;
     color: #333;
     text-align: center;
-    line-height: 160px;
     padding: 0;
 }
 </style>

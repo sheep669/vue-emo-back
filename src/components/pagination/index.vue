@@ -3,10 +3,10 @@
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page.sync="currentPage"
-            :page-sizes="[9]"
-            :page-size="9"
+            :page-sizes="[8]"
+            :page-size="8"
             layout="total,sizes,prev, pager, next, jumper"
-            :total="54"
+            :total="64"
         >
         </el-pagination>
 </template>
