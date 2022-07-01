@@ -1,11 +1,11 @@
 <template>
-    <el-menu default-active="/home/demo" router>
-        <el-submenu index="/home/demo">
+    <el-menu default-active="/demo" router>
+        <el-submenu index="1">
             <template slot="title">
                 <span style="font-weight: bold">权限管理</span>
             </template>
             <el-menu-item-group>
-                <el-menu-item index="/home/demo">查看DEMO</el-menu-item>
+                <el-menu-item index="/demo">查看DEMO</el-menu-item>
                 <el-menu-item index="/authority/login">登陆权限</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>

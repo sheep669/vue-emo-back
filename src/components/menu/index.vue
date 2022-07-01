@@ -84,6 +84,11 @@
 <script>
 export default {
     name: "EmoMenu",
+    mounted() {
+        if (performance.navigation.type == 1) {
+            this.$router.push("/home");
+        }
+    },
 };
 </script>
 <style lang='less' scoped>
