@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './plugins/element.js'
-import VueHighlightJS from 'vue-highlightjs';
-import 'highlight.js/styles/rainbow.css';
 import {
   Pagination,
   Dialog,
@@ -85,7 +83,6 @@ import {
   Message,
   Notification
 } from 'element-ui';
-Vue.use(VueHighlightJS);
 Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.use(Autocomplete);
