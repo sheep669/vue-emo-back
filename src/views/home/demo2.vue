@@ -12,7 +12,7 @@
             <el-card shadow="always" body-style="0px" style="margin: 8px">
                 <!-- <emo-table /> -->
                 <!-- <emo-pagination style="margin-top: 15px" /> -->
-                出库中数据页
+                厂库数据页
             </el-card>
         </div>
     </div>
