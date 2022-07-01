@@ -13,15 +13,44 @@
             "
         >
             <!-- 插入 emo-submenu-->
-            <emo-submenu />
+            <emo-submenu :subMenuData="subMenuData" />
         </div>
         <router-view></router-view>
     </div>
 </template>
 <script>
+import { getMenuData } from "@/utils/http";
 import EmoSubmenu from "@/components/submenu/index";
 export default {
     name: "EmoHome",
+    data() {
+        return {
+            subMenuData: [],
+        };
+    },
+    created() {
+        this.getSubMenuData();
+    },
+    methods: {
+        getSubMenuData() {
+            let is_query = sessionStorage.getItem("is_query");
+            let _this = this;
+            if (!is_query) {
+                getMenuData("/get_submenu_data").then((res) => {
+                    console.log("res", res);
+                    _this.subMenuData = res.data;
+                    sessionStorage.setItem("is_query", true);
+                    sessionStorage.setItem("data", JSON.stringify(res.data));
+                });
+            } else {
+                console.log("请求过了,不需要再次请求");
+                let d = sessionStorage.getItem("data");
+                let data = JSON.parse(d);
+                console.log(data);
+                _this.subMenuData = data;
+            }
+        },
+    },
     components: {
         EmoSubmenu,
     },

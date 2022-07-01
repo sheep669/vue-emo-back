@@ -1,0 +1,47 @@
+{
+    "get_submenu_data": [
+        {
+            "title": "商品管理",
+            "submenu": [
+                {
+                    "submenu_title": "出库中",
+                    "path": "/out_stock"
+                },
+                {
+                    "submenu_title": "厂库中",
+                    "path": "/in_stock"
+                },
+                {
+                    "submenu_title": "已售罄",
+                    "path": "/sold_out"
+                },
+                {
+                    "submenu_title": "产品库",
+                    "path": "/product_stock"
+                }
+            ]
+        },
+        {
+            "title": "商品管理2",
+            "hidden": true,
+            "submenu": [
+                {
+                    "submenu_title": "出库中2",
+                    "path": "/out_stock2"
+                },
+                {
+                    "submenu_title": "厂库中2",
+                    "path": "/in_stock2"
+                },
+                {
+                    "submenu_title": "已售罄2",
+                    "path": "/sold_out2"
+                },
+                {
+                    "submenu_title": "产品库2",
+                    "path": "/product_stock2"
+                }
+            ]
+        }
+    ]
+}

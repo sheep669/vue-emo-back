@@ -84,6 +84,11 @@
 <script>
 export default {
     name: "EmoMenu",
+    data() {
+        return {
+            menuData: [],
+        };
+    },
     mounted() {
         if (performance.navigation.type == 1) {
             this.$router.push("/home");
