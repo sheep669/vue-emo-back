@@ -1,4 +1,18 @@
 {
+    "get_menu_data": [
+        {
+            "path": "/schedule",
+            "name": "schedule",
+            "component": "/schedule",
+            "title": "开发进度"
+        },
+        {
+            "path": "/chatroom",
+            "name": "chatroom",
+            "component": "/chatroom",
+            "title": "摸鱼聊天室"
+        }
+    ],
     "get_submenu_data": [
         {
             "title": "商品管理",

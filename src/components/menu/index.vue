@@ -71,9 +71,9 @@
             <i class="el-icon-setting"></i>
             <span slot="title"> 11 </span>
         </el-menu-item>
-        <el-menu-item index="/setting">
+        <el-menu-item index="/chatroom">
             <i class="el-icon-setting"></i>
-            <span slot="title"> 44 </span>
+            <span slot="title">摸鱼聊天室 </span>
         </el-menu-item>
         <el-menu-item index="/schedule">
             <i class="el-icon-setting"></i>
@@ -82,13 +82,14 @@
     </el-menu>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
     name: "EmoMenu",
     data() {
-        return {
-            menuData: [],
-        };
+        return {};
     },
+
+    computed: mapGetters(["navData"]),
     mounted() {
         if (performance.navigation.type == 1) {
             this.$router.push("/home");
