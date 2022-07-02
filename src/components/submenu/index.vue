@@ -1,5 +1,5 @@
 <template>
-    <el-menu :default-active="activeIndex" router>
+    <el-menu router>
         <div v-for="(item, index1) in subMenuData" :key="index1">
             <el-submenu index="index+1">
                 <template slot="title">
@@ -24,21 +24,6 @@ export default {
     props: {
         type: Array,
         subMenuData: [],
-    },
-    data() {
-        return {
-            activeIndex: "",
-        };
-    },
-    created() {
-        this.setDefaultActive();
-    },
-    methods: {
-        setDefaultActive() {
-            let defaultIndex = this.subMenuData[0].submenu[0].path;
-            console.log("data=>", this.subMenuData[0].submenu[0].path);
-            this.activeIndex = defaultIndex;
-        },
     },
 };
 </script>
