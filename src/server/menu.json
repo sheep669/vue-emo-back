@@ -65,6 +65,89 @@
             ]
         },
         {
+            "path": "/order",
+            "name": "order",
+            "component": "/order",
+            "title": "订单",
+            "icon": "el-icon-shopping-cart-1",
+            "children": [
+                {
+                    "detail_title": "订单",
+                    "submenu": [
+                        {
+                            "submenu_title": "所有订单",
+                            "path": "/all_orders",
+                            "component": "/order/all-orders"
+                        },
+                        {
+                            "submenu_title": "待付款",
+                            "path": "/unpayed_orders",
+                            "component": "/order/unpayed-orders"
+                        },
+                        {
+                            "submenu_title": "待备货",
+                            "path": "/unprepared_orders",
+                            "component": "/order/unprepared-orders"
+                        },
+                        {
+                            "submenu_title": "备货中",
+                            "path": "/prepared_orders",
+                            "component": "/order/prepared-orders"
+                        },
+                        {
+                            "submenu_title": "配送中",
+                            "path": "/delivery_orders",
+                            "component": "/order/delivery-orders"
+                        },
+                        {
+                            "submenu_title": "待提货",
+                            "path": "/wait_receive_orders",
+                            "component": "/order/wait-receive-orders"
+                        },
+                        {
+                            "submenu_title": "交易完成",
+                            "path": "/deal_complete_orders",
+                            "component": "/order/deal-complete-orders"
+                        },
+                        {
+                            "submenu_title": "已关闭",
+                            "path": "/closed_orders",
+                            "component": "/order/closed-orders"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/user",
+            "name": "user",
+            "component": "/user",
+            "title": "会员",
+            "icon": "el-icon-user",
+            "children": [
+                {
+                    "detail_title": "会员管理",
+                    "submenu": [
+                        {
+                            "submenu_title": "会员列表",
+                            "path": "/user_list",
+                            "component": "/user/user-list"
+                        },
+                        {
+                            "submenu_title": "黑名单",
+                            "path": "/black_list",
+                            "component": "/user/black-list"
+                        },
+                        {
+                            "submenu_title": "待备货",
+                            "path": "/user_label",
+                            "component": "/user/user-label"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/schedule",
             "name": "schedule",
             "component": "/schedule",
