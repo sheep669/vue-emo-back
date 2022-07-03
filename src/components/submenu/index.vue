@@ -1,9 +1,16 @@
+<!--
+ * @Author: sheep669
+ * @Description: 封装的子菜单组件
+ * @Date: 2022-06-30 09:30:26
+-->
 <template>
     <el-menu :default-active="defaultActiveIndex" router>
         <div v-for="(item, index1) in subMenuData" :key="index1">
             <el-submenu :index="index1 + ''">
                 <template slot="title">
-                    <span style="font-weight: bold">{{ item.title }}</span>
+                    <span style="font-weight: bold">{{
+                        item.detail_title
+                    }}</span>
                 </template>
                 <el-menu-item-group>
                     <el-menu-item

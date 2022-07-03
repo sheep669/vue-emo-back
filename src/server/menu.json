@@ -1,0 +1,82 @@
+{
+    "get_menu_data": [
+        {
+            "path": "/",
+            "name": "root",
+            "component": null,
+            "redirect": "/home",
+            "title": null,
+            "hidden": true
+        },
+        {
+            "path": "/home",
+            "name": "home",
+            "component": "/home",
+            "title": "首页",
+            "icon": "el-icon-s-home"
+        },
+        {
+            "path": "/goods",
+            "name": "goods",
+            "component": "/goods",
+            "title": "商品",
+            "icon": "el-icon-goods",
+            "children": [
+                {
+                    "detail_title": "商品管理",
+                    "submenu": [
+                        {
+                            "submenu_title": "出库中",
+                            "path": "/out_stock",
+                            "component": "/goods/out-stock"
+                        },
+                        {
+                            "submenu_title": "厂库中",
+                            "path": "/in_stock",
+                            "component": "/goods/in-stock"
+                        },
+                        {
+                            "submenu_title": "已售罄",
+                            "path": "/sold_out",
+                            "component": "/goods/sold-out"
+                        },
+                        {
+                            "submenu_title": "产品库",
+                            "path": "/goods_stock",
+                            "component": "/goods/goods-stock"
+                        },
+                        {
+                            "submenu_title": "产品分类",
+                            "path": "/goods_classification",
+                            "component": "/goods/goods-classification"
+                        },
+                        {
+                            "submenu_title": "商品标签",
+                            "path": "/goods_label",
+                            "component": "/goods/goods-label"
+                        },
+                        {
+                            "submenu_title": "商品评论",
+                            "path": "/goods_comment",
+                            "component": "/goods/goods-comment"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/schedule",
+            "name": "schedule",
+            "component": "/schedule",
+            "title": "开发进度",
+            "icon": "el-icon-s-marketing"
+        },
+        {
+            "path": "/chatroom",
+            "name": "chatroom",
+            "component": "/chatroom",
+            "title": "摸鱼聊天室",
+            "icon": "el-icon-chat-line-square"
+        }
+    ]
+}

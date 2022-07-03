@@ -1,5 +1,10 @@
+<!--
+ * @Author: sheep669
+ * @Description: 出售中模块
+ * @Date: 2022-07-03 15:39:07
+-->
 <template>
-    <div id="demo">
+    <div id="out-stock">
         <div
             class="right"
             style="
@@ -12,14 +17,14 @@
             <el-card shadow="always" body-style="0px" style="margin: 8px">
                 <!-- <emo-table /> -->
                 <!-- <emo-pagination style="margin-top: 15px" /> -->
-                出库中数据页
+                出售中
             </el-card>
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: "EmoDemo",
+    name: "OutStock",
 };
 </script>
 <style lang='less' scoped>

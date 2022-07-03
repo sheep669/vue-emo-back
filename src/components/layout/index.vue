@@ -33,9 +33,9 @@
                 </el-tooltip>
             </div>
         </el-header>
-        <el-container style="height: 100%">
+        <el-container style="height: 100%; background-color: #545c64">
             <el-aside width="200px">
-                <!-- 插入  -->
+                <!-- 插入 emo-menu -->
                 <emo-menu />
             </el-aside>
             <el-container>

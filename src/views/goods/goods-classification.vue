@@ -1,5 +1,10 @@
+<!--
+ * @Author: sheep669
+ * @Description: 商品分类模块
+ * @Date: 2022-07-03 15:40:37
+-->
 <template>
-    <div id="demo">
+    <div id="goods-classification">
         <div
             class="right"
             style="
@@ -12,14 +17,14 @@
             <el-card shadow="always" body-style="0px" style="margin: 8px">
                 <!-- <emo-table /> -->
                 <!-- <emo-pagination style="margin-top: 15px" /> -->
-                厂库数据页
+                商品分类
             </el-card>
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: "EmoDemo",
+    name: "GoodsClassification",
 };
 </script>
 <style lang='less' scoped>
