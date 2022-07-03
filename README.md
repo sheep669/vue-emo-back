@@ -1,3 +1,8 @@
+<!--
+ * @Author: sheep669
+ * @Description: ReadMe
+ * @Date: 2022-06-26 21:29:25
+-->
 # vue-admin
 >#### 描述：一个线上社区团购的后台
 ## 项目启动步骤
@@ -13,4 +18,7 @@ json-server --watch .\data.json
 ```
 npm run serve
 ```
+
+>已完成大致设计，解决各色bug
+
 >项目未成形，持续赶工中 ......
