@@ -88,7 +88,6 @@ export default {
     data() {
         return {};
     },
-
     computed: mapGetters(["navData"]),
 };
 </script>

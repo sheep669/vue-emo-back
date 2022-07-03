@@ -1,6 +1,19 @@
 {
     "get_menu_data": [
         {
+            "path": "/",
+            "name": "root",
+            "redirect": "/home",
+            "component": null,
+            "title": null
+        },
+        {
+            "path": "/home",
+            "name": "home",
+            "component": "/home",
+            "title": "首页"
+        },
+        {
             "path": "/schedule",
             "name": "schedule",
             "component": "/schedule",

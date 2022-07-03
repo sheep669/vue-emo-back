@@ -3,32 +3,23 @@ import VueRouter from 'vue-router'
 import { getMenuData } from "@/utils/http";
 import store from '@/store/index.js'
 
-
-const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location, resolve, reject) {
-  if (resolve || reject) return originalPush.call(this, location, resolve, reject)
-  return originalPush.call(this, location).catch((e) => { console.log(e) })
-}
-
 Vue.use(VueRouter)
 
 
-
 const routes = [
-  {
-    path: '/',
-    redirect: '/home',
-  },
-  {
-    path: '/home',
-    name: 'home',
-    redirect: '',
-    component: () => import('@/views/home/index.vue'),
-    meta: {
-      title: "首页"
-    },
-    children: []
-  },
+  // {
+  //   path: '/',
+  //   redirect: '/home',
+  // },
+  // {
+  //   path: '/home',
+  //   name: 'home',
+  //   redirect: '',
+  //   component: () => import('@/views/home/index.vue'),
+  //   meta: {
+  //     title: "首页"
+  //   },
+  // },
 ]
 
 
@@ -60,13 +51,22 @@ router.beforeEach(async (to, from, next) => {
 function addR(data) {
   data.forEach(v => {
     console.log("=>", v)
-    routes.push({
-      path: v.path,
-      redirect: v.redirect,
-      name: v.name,
-      component: () => import("../views" + v.component + "/index.vue"),
-      meta: { title: v.title }
-    })
+    if (!v.redirect) {
+      routes.push({
+        path: v.path,
+        name: v.name,
+        component: () => import("../views" + v.component + "/index.vue"),
+        meta: { title: v.title }
+      })
+    } else {
+      routes.push({
+        path: v.path,
+        redirect: v.redirect,
+        name: v.name,
+        component: () => import("../views" + v.component + "/index.vue"),
+        meta: { title: v.title }
+      })
+    }
   })
   return routes
 }
