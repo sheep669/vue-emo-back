@@ -12,6 +12,8 @@ VueRouter.prototype.push = function push(location, resolve, reject) {
 
 Vue.use(VueRouter)
 
+
+
 const routes = [
   {
     path: '/',
@@ -27,37 +29,12 @@ const routes = [
     },
     children: []
   },
-  // {
-  //   path: '/schedule',
-  //   name: 'schedule',
-  //   component: () => import('../views/schedule/index.vue'),
-  //   meta: {
-  //     title: "首页"
-  //   },
-  //   children: []
-  // }
 ]
-
-// getMenuData("/get_menu_data").then((res) => {
-//   console.log("resr", res);
-//   res.data.forEach(v => {
-//     routes.push({
-//       path: v.path,
-//       redirect: v.redirect,
-//       name: v.name,
-//       component: () => import("../views" + v.component + "/index.vue"),
-//       meta: v.meta
-//     })
-
-//   });
-//   console.log(routes);
-// });
 
 
 const router = new VueRouter({
   routes,
 })
-
 
 //路由拦截
 router.beforeEach(async (to, from, next) => {
@@ -68,12 +45,14 @@ router.beforeEach(async (to, from, next) => {
     console.log('res.data', res.data)
     // 动态添加
     let dynamicRoutes = addR(res.data);
-    router.addRoutes(dynamicRoutes)//动态添加路由
+    router.addRoutes(dynamicRoutes); //动态添加路由
+    console.log('routes', routes)
     //缓存数据
     store.dispatch('SETNAV', res.data);
     //跳转
-    next({ ...to, replace: true })
+    next({ ...to })
   } else {
+    console.log('routes', routes)
     next();
   }
 })
@@ -91,7 +70,5 @@ function addR(data) {
   })
   return routes
 }
-
-
 
 export default router

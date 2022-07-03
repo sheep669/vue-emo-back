@@ -33,27 +33,28 @@ export default {
     },
     methods: {
         getSubMenuData() {
-            const child_route_list = {
-                path: "/sold_out",
-                name: "aa",
-                component: () => import("@/views/home/demo.vue"),
-            };
+            // const child_route_list = {
+            //     path: "/sold_out",
+            //     name: "aa",
+            //     component: () => import("@/views/home/demo.vue"),
+            // };
             // this.$router.options.routes.forEach((v) => {
             //     if (v.name == home && v.children) {
 
             //     }
             // });
-            this.$router.addRoute("schedule", {
-                path: "/xxx",
+            this.$router.addRoute("home", {
+                path: "/sold_out",
+                name: "sold_out",
                 component: () => import("@/views/home/demo.vue"),
             });
 
-            console.log("全部路由", this.$router.options.routes);
-            let ar = this.$router.options.routes[1].children;
-            ar.push(child_route_list);
-            console.log("需要添加路由的位置", ar);
-            this.$router.addRoutes(this.$router.options.routes);
-            console.log("全部路由plus", this.$router.options.routes);
+            // console.log("全部路由", this.$router.options.routes);
+            // let ar = this.$router.options.routes[1].children;
+            // ar.push(child_route_list);
+            // console.log("需要添加路由的位置", ar);
+            // this.$router.addRoutes(this.$router.options.routes);
+            // console.log("全部路由plus", this.$router.options.routes);
             let is_query = sessionStorage.getItem("is_query");
             let _this = this;
             if (!is_query) {
