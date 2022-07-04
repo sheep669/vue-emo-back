@@ -1,7 +1,7 @@
 <!--
  * @Author: sheep669
- * @Description: 商品管理模块主侧边栏
- * @Date: 2022-07-03 15:39:52
+ * @Description: 商品模块主侧边栏
+ * @Date: 2022-7-4 23:35:37
 -->
 <template>
     <div style="width: 100%; height: calc(100% - 2px)">
@@ -40,12 +40,14 @@ export default {
     computed: mapGetters(["navData"]),
     created() {
         this.getSubMenuData();
-        this.$router.push("sold_out");
+        //默认重定向到子路由的第一个path
+        this.$router.push("/out_stock");
     },
     methods: {
         getSubMenuData() {
             console.log("全部路由", this.$router.options.routes);
             this.navData.forEach((v) => {
+                //按需提取子路由
                 if (v.name == "goods") {
                     this.subMenuData = v.children;
                     this.activeIndex = v.children[0].submenu[0].path;
@@ -57,6 +59,7 @@ export default {
                 submenu = v2.submenu;
             });
             submenu.forEach((v3) => {
+                //按需添加子路由
                 this.$router.addRoute("goods", {
                     path: v3.path,
                     component: () => import("@/views" + v3.component + ".vue"),

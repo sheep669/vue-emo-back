@@ -139,7 +139,7 @@
                             "component": "/user/black-list"
                         },
                         {
-                            "submenu_title": "待备货",
+                            "submenu_title": "会员标签",
                             "path": "/user_label",
                             "component": "/user/user-label"
                         }

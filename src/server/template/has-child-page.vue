@@ -1,7 +1,7 @@
 <!--
  * @Author: sheep669
- * @Description: 会员模块主侧边栏
- * @Date: 2022-7-4 23:35:37
+ * @Description: replaceDesc模块主侧边栏
+ * @Date: replaceTime
 -->
 <template>
     <div style="width: 100%; height: calc(100% - 2px)">
@@ -30,7 +30,7 @@
 import { mapGetters } from "vuex";
 import EmoSubmenu from "@/components/submenu/index";
 export default {
-    name: "EmoUser",
+    name: "replace3",
     data() {
         return {
             subMenuData: [],
@@ -41,14 +41,14 @@ export default {
     created() {
         this.getSubMenuData();
         //默认重定向到子路由的第一个path
-        this.$router.push("/user_list");
+        this.$router.push("replace1");
     },
     methods: {
         getSubMenuData() {
             console.log("全部路由", this.$router.options.routes);
             this.navData.forEach((v) => {
                 //按需提取子路由
-                if (v.name == "user") {
+                if (v.name == "replace2") {
                     this.subMenuData = v.children;
                     this.activeIndex = v.children[0].submenu[0].path;
                     return;
@@ -60,7 +60,7 @@ export default {
             });
             submenu.forEach((v3) => {
                 //按需添加子路由
-                this.$router.addRoute("user", {
+                this.$router.addRoute("replace2", {
                     path: v3.path,
                     component: () => import("@/views" + v3.component + ".vue"),
                 });
