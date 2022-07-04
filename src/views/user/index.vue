@@ -1,7 +1,7 @@
 <!--
  * @Author: sheep669
  * @Description: 会员模块主侧边栏
- * @Date: 2022-7-4 23:35:37
+ * @Date: 2022-7-4 23:52:10
 -->
 <template>
     <div style="width: 100%; height: calc(100% - 2px)">
@@ -57,12 +57,14 @@ export default {
             let submenu;
             this.subMenuData.forEach((v2) => {
                 submenu = v2.submenu;
-            });
-            submenu.forEach((v3) => {
-                //按需添加子路由
-                this.$router.addRoute("user", {
-                    path: v3.path,
-                    component: () => import("@/views" + v3.component + ".vue"),
+                console.log("submenu", submenu);
+                submenu.forEach((v3) => {
+                    //按需添加子路由
+                    this.$router.addRoute("user", {
+                        path: v3.path,
+                        component: () =>
+                            import("@/views" + v3.component + ".vue"),
+                    });
                 });
             });
         },

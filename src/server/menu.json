@@ -144,6 +144,17 @@
                             "component": "/user/user-label"
                         }
                     ]
+                },
+                {
+                    "detail_title": "会员权限",
+                    "hidden": true,
+                    "submenu": [
+                        {
+                            "submenu_title": "优惠权限",
+                            "path": "/user_discount_authority",
+                            "component": "/user/user-discount-authority"
+                        }
+                    ]
                 }
             ]
         },

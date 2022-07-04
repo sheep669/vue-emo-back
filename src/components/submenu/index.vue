@@ -59,4 +59,7 @@ export default {
 .el-divider--horizontal {
     margin: 0;
 }
+.el-divider {
+    opacity: 0.6;
+}
 </style>
