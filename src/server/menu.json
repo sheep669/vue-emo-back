@@ -119,6 +119,45 @@
             ]
         },
         {
+            "path": "/finance",
+            "name": "finance",
+            "component": "/finance",
+            "title": "财务",
+            "icon": "el-icon-bank-card",
+            "children": [
+                {
+                    "detail_title": "财务",
+                    "submenu": [
+                        {
+                            "submenu_title": "团长结算",
+                            "path": "/group_buying_organizer_clear",
+                            "component": "/finance/group-buying-organizer-clear"
+                        },
+                        {
+                            "submenu_title": "团长提现信息",
+                            "path": "/group_buying_organizer_withdrawal_information",
+                            "component": "/finance/group-buying-organizer-withdrawal-information"
+                        },
+                        {
+                            "submenu_title": "团长提现审核",
+                            "path": "/group_buying_organizer_withdrawal_audit",
+                            "component": "/finance/group-buying-organizer-withdrawal-audit"
+                        },
+                        {
+                            "submenu_title": "佣金流水",
+                            "path": "/brokerage_serial",
+                            "component": "/finance/brokerage-serial "
+                        },
+                        {
+                            "submenu_title": "交易流水",
+                            "path": "/deal_serial",
+                            "component": "/finance/deal-serial"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/user",
             "name": "user",
             "component": "/user",
