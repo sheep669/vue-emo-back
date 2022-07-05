@@ -54,11 +54,8 @@ export default {
                     return;
                 }
             });
-            let submenu;
             this.subMenuData.forEach((v2) => {
-                submenu = v2.submenu;
-                console.log("submenu", submenu);
-                submenu.forEach((v3) => {
+                v2.submenu.forEach((v3) => {
                     //按需添加子路由
                     this.$router.addRoute("user", {
                         path: v3.path,
