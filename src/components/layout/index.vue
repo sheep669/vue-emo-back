@@ -1,3 +1,8 @@
+<!--
+ * @Author: sheep669
+ * @Description: 布局文件
+ * @Date: 2022-06-26 21:46:02
+-->
 <template>
     <el-container
         style="
@@ -8,30 +13,8 @@
         "
     >
         <el-header>
-            <div
-                class="logo"
-                style="width: 200px; background: #1e1e1e; color: white"
-            >
-                社区团购
-            </div>
-            <div class="header">
-                <el-tooltip effect="dark" content="打开全屏" placement="left">
-                    <i
-                        v-show="fullscreen === false"
-                        class="el-icon-full-screen"
-                        @click="fullOrEscScreen"
-                        style="font-size: 25px; font-weight: 600"
-                    ></i>
-                </el-tooltip>
-                <el-tooltip effect="dark" content="退出全屏" placement="right">
-                    <i
-                        v-show="fullscreen === true"
-                        class="el-icon-rank"
-                        @click="fullOrEscScreen"
-                        style="font-size: 25px; font-weight: 600"
-                    ></i>
-                </el-tooltip>
-            </div>
+            <!-- 插入 emo-header -->
+            <emo-header />
         </el-header>
         <el-container style="background: #545c64">
             <el-aside width="200px">
@@ -42,6 +25,7 @@
                 <el-main>
                     <router-view></router-view>
                 </el-main>
+                <!-- 插入 emo-footer -->
                 <emo-footer />
             </el-container>
         </el-container>
@@ -50,78 +34,22 @@
 </template>
 
 <script>
-// import EmoTable from "@/components/table/index";
-// import EmoPagination from "@/components/pagination/index";
 import EmoMenu from "@/components/menu/index";
-// import EmoSubmenu from "@/components/submenu/index";
+import EmoHeader from "@/components/header/index";
 import EmoFooter from "@/components/footer/index";
 export default {
     name: "EmoLayout",
     components: {
-        // EmoTable,
-        // EmoPagination,
         EmoMenu,
-        // EmoSubmenu,
+        EmoHeader,
         EmoFooter,
-    },
-    data() {
-        return {
-            fullscreen: false,
-        };
-    },
-    methods: {
-        handleOpen(key, keyPath) {
-            console.log(key, keyPath);
-        },
-        handleClose(key, keyPath) {
-            console.log(key, keyPath);
-        },
-        fullOrEscScreen() {
-            let element = document.documentElement;
-            // 判断是否已经是全屏
-            // 如果是全屏，退出
-            if (this.fullscreen) {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitCancelFullScreen) {
-                    document.webkitCancelFullScreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            } else {
-                // 否则，进入全屏
-                if (element.requestFullscreen) {
-                    element.requestFullscreen();
-                } else if (element.webkitRequestFullScreen) {
-                    element.webkitRequestFullScreen();
-                } else if (element.mozRequestFullScreen) {
-                    element.mozRequestFullScreen();
-                } else if (element.msRequestFullscreen) {
-                    // IE11
-                    element.msRequestFullscreen();
-                }
-            }
-            // 改变当前全屏状态
-            this.fullscreen = !this.fullscreen;
-        },
     },
 };
 </script>
 
 <style lang="less" scoped>
 .el-header {
-    background-color: #ffffff;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
     padding: 0;
-    display: flex;
-    justify-content: space-between;
-    .header {
-        flex-grow: 1;
-    }
 }
 .el-aside {
     background-color: #545c64;

@@ -1,6 +1,11 @@
+<!--
+ * @Author: sheep669
+ * @Description: 
+ * @Date: 2022-06-30 10:35:10
+-->
 <template>
     <div id="emo-footer">
-        <el-footer> footer </el-footer>
+        <el-footer> Copyright © 2022 Created by sheep669 All Rights Reserved</el-footer>
     </div>
 </template>
 <script>
