@@ -16,6 +16,30 @@
             "icon": "el-icon-s-home"
         },
         {
+            "path": "/group_buying_organizer",
+            "name": "groupbuyingorganizer",
+            "component": "/groupbuyingorganizer",
+            "title": "团长",
+            "icon": "el-icon-s-custom",
+            "children": [
+                {
+                    "detail_title": "团长",
+                    "submenu": [
+                        {
+                            "submenu_title": "团长管理",
+                            "path": "/group_buying_organizer_manage",
+                            "component": "/groupbuyingorganizer/group-buying-organizer-manage"
+                        },
+                        {
+                            "submenu_title": "团长审核",
+                            "path": "/group_buying_organizer_audit",
+                            "component": "/groupbuyingorganizer/group-buying-organizer-audit"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/goods",
             "name": "goods",
             "component": "/goods",
@@ -202,7 +226,7 @@
             "name": "delivery",
             "component": "/delivery",
             "title": "配送",
-            "icon": "el-icon-shopping-cart-1",
+            "icon": "el-icon-truck",
             "children": [
                 {
                     "detail_title": "配送",
@@ -231,7 +255,7 @@
             "name": "aftersale",
             "component": "/aftersale",
             "title": "售后",
-            "icon": "el-icon-shopping-cart-1",
+            "icon": "el-icon-sold-out",
             "children": [
                 {
                     "detail_title": "售后",
@@ -256,35 +280,80 @@
             ]
         },
         {
-            "path": "/group_buying_organizer",
-            "name": "groupbuyingorganizer",
-            "component": "/groupbuyingorganizer",
-            "title": "团长",
-            "icon": "el-icon-s-custom",
+            "path": "/schedule",
+            "name": "schedule",
+            "component": "/schedule",
+            "title": "开发进度",
+            "icon": "el-icon-s-flag"
+        },
+        {
+            "path": "/system",
+            "name": "system",
+            "component": "/system",
+            "title": "系统",
+            "icon": "el-icon-cpu",
             "children": [
                 {
-                    "detail_title": "团长",
+                    "detail_title": "系统用户管理",
                     "submenu": [
                         {
-                            "submenu_title": "团长管理",
-                            "path": "/group_buying_organizer_manage",
-                            "component": "/groupbuyingorganizer/group-buying-organizer-manage"
+                            "submenu_title": "用户查看",
+                            "path": "/sys_user_view",
+                            "component": "/system/sys-user-view"
                         },
                         {
-                            "submenu_title": "团长审核",
-                            "path": "/group_buying_organizer_audit",
-                            "component": "/groupbuyingorganizer/group-buying-organizer-audit"
+                            "submenu_title": "用户分类",
+                            "path": "/sys_user_classification",
+                            "component": "/system/sys-user-classification"
+                        }
+                    ]
+                },
+                {
+                    "detail_title": "系统日志",
+                    "hidden": true,
+                    "submenu": [
+                        {
+                            "submenu_title": "操作日志",
+                            "path": "/sys_user_operation_log",
+                            "component": "/system/sys-user-operation-log"
+                        },
+                        {
+                            "submenu_title": "登录日志",
+                            "path": "/sys_user_login_log",
+                            "component": "/system/sys-user-login-log"
                         }
                     ]
                 }
             ]
         },
         {
-            "path": "/schedule",
-            "name": "schedule",
-            "component": "/schedule",
-            "title": "开发进度",
-            "icon": "el-icon-s-marketing"
+            "path": "/authority",
+            "name": "authority",
+            "component": "/authority",
+            "title": "权限",
+            "icon": "el-icon-s-check",
+            "children": [
+                {
+                    "detail_title": "权限",
+                    "submenu": [
+                        {
+                            "submenu_title": "用户权限查看",
+                            "path": "/user_authority_view",
+                            "component": "/authority/user-authority-view"
+                        },
+                        {
+                            "submenu_title": "权限管理",
+                            "path": "/user_authority_manage",
+                            "component": "/authority/user-authority-manage"
+                        },
+                        {
+                            "submenu_title": "权限分配",
+                            "path": "/user_authority_distribute",
+                            "component": "/authority/user-authority-distribute"
+                        }
+                    ]
+                }
+            ]
         },
         {
             "path": "/chatroom",
