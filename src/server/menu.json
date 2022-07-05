@@ -198,6 +198,35 @@
             ]
         },
         {
+            "path": "/delivery",
+            "name": "delivery",
+            "component": "/delivery",
+            "title": "配送",
+            "icon": "el-icon-shopping-cart-1",
+            "children": [
+                {
+                    "detail_title": "配送",
+                    "submenu": [
+                        {
+                            "submenu_title": "生成配送单",
+                            "path": "/create_delivery_paper",
+                            "component": "/delivery/create-delivery-paper"
+                        },
+                        {
+                            "submenu_title": "配送单管理",
+                            "path": "/delivery_paper_manage",
+                            "component": "/delivery/delivery-paper-manage"
+                        },
+                        {
+                            "submenu_title": "配送路线",
+                            "path": "/delivery_routes",
+                            "component": "/delivery/delivery-routes"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/after_sale",
             "name": "aftersale",
             "component": "/aftersale",
