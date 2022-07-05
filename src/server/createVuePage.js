@@ -62,23 +62,23 @@ function createVuePage() {
                     fse.createFileSync(path.join(target, v.name) + '/index.vue');
                     copyTemplateSync('./template/no-child-page.vue', "emo-" + v.name, upperCamelCase("emo-" + v.name), v.title, currentTime, path.join(target, v.name) + '/index.vue');
                 }
-                if (!fse.pathExistsSync(path.join(target, v.name) + '/index.vue') && v.children) {
+                if (!fse.pathExistsSync(path.join(target, v.name) + '/index.vue') && v.name != "root" && v.children) {
                     fse.createFileSync(path.join(target, v.name) + '/index.vue');
                     copyTemplateSync2('./template/has-child-page.vue', v.children[0].submenu[0].path, v.name, upperCamelCase("emo-" + v.path.substring(1)), v.title, currentTime, path.join(target, v.name) + '/index.vue');
                 }
                 if (v.children) {
                     children = v.children;
                 }
-            });
-            children.forEach(v2 => {
-                v2.submenu.forEach(v3 => {
-                    // v3.component: "/goods/out-stock"
-                    if (!fse.pathExistsSync(target + v3.component + '.vue')) {
-                        fse.createFileSync(target + v3.component + '.vue')
-                        copyTemplateSync("./template/child-page.vue", v3.path.substring(1), upperCamelCase(v3.path.substring(1)), v3.submenu_title, currentTime, target + v3.component + '.vue')
-                    }
+                children.forEach(v2 => {
+                    v2.submenu.forEach(v3 => {
+                        // v3.component: "/goods/out-stock"
+                        if (!fse.pathExistsSync(target + v3.component + '.vue')) {
+                            fse.createFileSync(target + v3.component + '.vue')
+                            copyTemplateSync("./template/child-page.vue", v3.path.substring(1), upperCamelCase(v3.path.substring(1)), v3.submenu_title, currentTime, target + v3.component + '.vue')
+                        }
+                    })
                 })
-            })
+            });
             console.log("==========OK==========");
             console.log("All Files Are Ready !");
         })
