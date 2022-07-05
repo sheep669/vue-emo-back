@@ -33,55 +33,19 @@
                 </el-tooltip>
             </div>
         </el-header>
-        <el-container style="height: 100%; background-color: #545c64">
+        <el-container style="background: #545c64">
             <el-aside width="200px">
                 <!-- 插入 emo-menu -->
                 <emo-menu />
             </el-aside>
             <el-container>
                 <el-main>
-                    <!-- <slot name="main_content"> -->
                     <router-view></router-view>
-                    <!-- <div
-                        class="left"
-                        style="
-                            width: 160px;
-                            background: #ffffff;
-                            height: calc(100% - 2px);
-                            float: left;
-                            overflow-x: hidden;
-                            overflow-y: auto;
-                            border-top: 2px solid rgb(0 0 0 / 5%);
-                        "
-                    > -->
-                    <!-- 插入 emo-submenu-->
-                    <!-- <emo-submenu />
-                    </div>
-                    <div
-                        class="right"
-                        style="
-                            height: 100%;
-                            width: calc(100% - 160px);
-                            float: right; -->
-                    <!-- overflow-y: auto;
-                        "
-                    >
-                        <el-card
-                            shadow="always" -->
-                    <!-- body-style="0px"
-                            style="margin: 8px"
-                        > -->
-                    <!-- <emo-table /> -->
-                    <!-- <emo-pagination style="margin-top: 15px" /> -->
-                    <!-- <router-view></router-view> -->
-                    <!-- </el-card> -->
-                    <!-- </div> -->
-                    <!-- </slot> -->
                 </el-main>
-                <!-- 插入 emo-footer -->
                 <emo-footer />
             </el-container>
         </el-container>
+        <span class="author">作者:sheep669</span>
     </el-container>
 </template>
 
@@ -178,5 +142,16 @@ export default {
     bottom: 60;
     width: calc(100% - 200px);
     height: calc(100% - 120px);
+}
+.author {
+    display: block;
+    position: absolute;
+    bottom: 23px;
+    left: 20px;
+    color: #ffffff;
+    border-top: 1px solid gray;
+    padding-top: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 </style>
