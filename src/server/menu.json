@@ -159,6 +159,59 @@
             ]
         },
         {
+            "path": "/after_sale",
+            "name": "aftersale",
+            "component": "/aftersale",
+            "title": "售后",
+            "icon": "el-icon-shopping-cart-1",
+            "children": [
+                {
+                    "detail_title": "售后",
+                    "submenu": [
+                        {
+                            "submenu_title": "所有售后",
+                            "path": "/all_after_sale",
+                            "component": "/aftersale/all-after-sale"
+                        },
+                        {
+                            "submenu_title": "退款申请",
+                            "path": "/drawback_apply",
+                            "component": "/aftersale/drawback-apply"
+                        },
+                        {
+                            "submenu_title": "退货申请",
+                            "path": "/refund_apply",
+                            "component": "/aftersale/refund-apply"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/group_buying_organizer",
+            "name": "groupbuyingorganizer",
+            "component": "/groupbuyingorganizer",
+            "title": "团长",
+            "icon": "el-icon-s-custom",
+            "children": [
+                {
+                    "detail_title": "团长",
+                    "submenu": [
+                        {
+                            "submenu_title": "团长管理",
+                            "path": "/group_buying_organizer_manage",
+                            "component": "/groupbuyingorganizer/group-buying-organizer-manage"
+                        },
+                        {
+                            "submenu_title": "团长审核",
+                            "path": "/group_buying_organizer_audit",
+                            "component": "/groupbuyingorganizer/group-buying-organizer-audit"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/schedule",
             "name": "schedule",
             "component": "/schedule",
