@@ -23,8 +23,8 @@ npm run serve
 
 >项目未成形，持续赶工中 ......
 
-## 项目启动步骤
-### vue页面生成器    进入到server文件夹
+## vue页面生成器启动步骤
+### 进入到server文件夹使用下面的命令
 ```
 node ./createVuePage.js
 ```
