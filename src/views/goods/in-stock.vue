@@ -1,31 +1,32 @@
 <!--
  * @Author: sheep669
- * @Description: 仓库中模块
- * @Date: 2022-07-03 15:39:35
+ * @Description: 厂库中模块
+ * @Date: 2022-7-6 20:52:20
 -->
 <template>
-    <div id="in-stock">
-        <div
-            class="right"
-            style="
-                height: 100%;
-                width: calc(100% - 160px);
-                float: right;
-                overflow-y: auto;
-            "
-        >
-            <el-card shadow="always" body-style="0px" style="margin: 8px">
-                <!-- <emo-table /> -->
-                <!-- <emo-pagination style="margin-top: 15px" /> -->
-                仓库中
-            </el-card>
-        </div>
+    <!-- suggest to replace '_'===> '-' -->
+    <div class="in_stock">
+        <el-card shadow="always" body-style="0px" style="margin: 8px">
+            <!-- <emo-table /> -->
+            <!-- <emo-pagination style="margin-top: 15px" /> -->
+            in_stock page
+        </el-card>
     </div>
 </template>
 <script>
+// import EmoTable from "@/components/table/index";
 export default {
     name: "InStock",
+    // components: {
+    //     EmoTable,
+    // },
 };
 </script>
 <style lang='less' scoped>
+.in_stock {
+    height: 100%;
+    width: calc(100% - 160px);
+    float: right;
+    overflow-y: auto;
+}
 </style>

@@ -1,144 +1,143 @@
 <template>
-    <el-table :data="tableData" border max-width="120">
-        <el-table-column fixed prop="date" label="日期" width="180">
-        </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180">
-        </el-table-column>
-        <el-table-column prop="address" label="地址" show-overflow-tooltip>
-        </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180">
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
+    <div class="emo-table">
+        <el-table
+            :data="table_data"
+            style="width: 95.5%"
+            border
+            max-width="250"
         >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column
-            prop="address"
-            label="地址"
-            width="120"
-            show-overflow-tooltip
-        >
-        </el-table-column>
-        <el-table-column label="姓名" width="180">
-            <template slot-scope="scope">
-                <el-popover trigger="hover" placement="top">
-                    <p>姓名: {{ scope.row.name }}</p>
-                    <p>住址: {{ scope.row.address }}</p>
-                    <div slot="reference" class="name-wrapper">
-                        <el-tag size="medium">{{ scope.row.name }}</el-tag>
-                    </div>
-                </el-popover>
-            </template>
-        </el-table-column>
-        <el-table-column label="操作" width="180">
-            <template slot-scope="scope">
-                <el-switch
-                    v-model="scope.row.status"
-                    active-value="true"
-                    inactive-value="false"
-                    active-color="#13ce66"
-                    inactive-color="#ff4949"
+            <el-table-column
+                v-if="table_config.checkbox"
+                type="selection"
+                width="55"
+            >
+            </el-table-column>
+            <template v-for="item in table_config.thead">
+                <el-table-column
+                    v-if="item.type === 'switch'"
+                    :key="item.prop"
+                    :label="item.label"
+                    :prop="item.prop"
+                    :width="item.width"
                 >
-                </el-switch>
-            </template>
-        </el-table-column>
-        <el-table-column label="操作" fixed="right" width="150">
-            <template slot-scope="scope">
-                <el-button
-                    size="mini"
-                    @click="handleEdit(scope.$index, scope.row)"
-                    >编辑</el-button
+                    <template slot-scope="scope">
+                        <el-switch
+                            :disabled="switch_disabled == scope.row.id"
+                            @change="switchChange(scope.row)"
+                            v-model="scope.row.status"
+                            active-value="1"
+                            inactive-value="0"
+                            active-color="#13ce66"
+                            inactive-color="#ff4949"
+                        >
+                        </el-switch>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                    v-else-if="item.type === 'function'"
+                    :key="item.prop"
+                    :label="item.label"
+                    :prop="item.prop"
+                    :width="item.width"
                 >
-                <el-button
-                    size="mini"
-                    type="danger"
-                    @click="handleDelete(scope.$index, scope.row)"
-                    >删除</el-button
+                    <template slot-scope="scope">
+                        <!-- item.callback(scope.row) 把数据传出去  scope.row == data -->
+                        <span>{{
+                            item.callback && item.callback(scope.row.type)
+                        }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                    v-else-if="item.type === 'image'"
+                    :key="item.prop"
+                    :label="item.label"
+                    :prop="item.prop"
+                    :width="item.width"
                 >
+                    <template slot-scope="scope">
+                        <el-image
+                            style="width: 100px; height: 100px"
+                            :src="scope.row.imgurl"
+                            fit="fit"
+                        ></el-image>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                    v-else
+                    :key="item.prop"
+                    :label="item.label"
+                    :prop="item.prop"
+                    :width="item.width"
+                    show-overflow-tooltip
+                ></el-table-column>
             </template>
-        </el-table-column>
-    </el-table>
+        </el-table>
+    </div>
 </template>
 
 <script>
 import { getTableData } from "@/utils/http";
 export default {
-    name: "EmoTable",
+    name: "EmoTableFeng",
     data() {
         return {
-            tableData: [],
+            table_data: [],
+            table_config: {
+                thead: [],
+                checkbox: "",
+                url: ``,
+            },
+            switch_disabled: 222,
         };
     },
-    mounted() {
-        this.getData();
+    props: {
+        config: {
+            type: Object,
+            default: () => {},
+        },
     },
     methods: {
-        getData() {
+        switchChange(data) {
+            console.log(data);
+        },
+        initConfig() {
+            for (let key in this.config) {
+                if (Object.keys(this.table_config).includes(key)) {
+                    this.table_config[key] = this.config[key];
+                }
+            }
+            //配置完成后再去调用
+            this.getData(this.table_config.url);
+        },
+        getData(url_param) {
             let _this = this;
-            getTableData(`/get_table_data`).then((res) => {
-                // console.log(res);
-                _this.tableData = res.data;
+            getTableData(url_param).then((res) => {
+                _this.table_data = res.data;
             });
         },
-        handleEdit(index, row) {
-            console.log("index", index);
-            console.log("row", row);
-        },
-        handleDelete(index, row) {
-            console.log(index, row);
+    },
+    watch: {
+        config: {
+            handler(newValue) {
+                this.initConfig();
+                console.log("newValue", newValue);
+            },
+            immediate: true,
         },
     },
 };
 </script>
+
+<style lang="css" scoped>
+.emo-table {
+    width: 1250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12px;
+}
+.el-table {
+    margin-bottom: 5px;
+}
+</style>

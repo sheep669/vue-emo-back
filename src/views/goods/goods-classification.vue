@@ -1,31 +1,32 @@
 <!--
  * @Author: sheep669
- * @Description: 商品分类模块
- * @Date: 2022-07-03 15:40:37
+ * @Description: 产品分类模块
+ * @Date: 2022-7-6 20:52:20
 -->
 <template>
-    <div id="goods-classification">
-        <div
-            class="right"
-            style="
-                height: 100%;
-                width: calc(100% - 160px);
-                float: right;
-                overflow-y: auto;
-            "
-        >
-            <el-card shadow="always" body-style="0px" style="margin: 8px">
-                <!-- <emo-table /> -->
-                <!-- <emo-pagination style="margin-top: 15px" /> -->
-                商品分类
-            </el-card>
-        </div>
+    <!-- suggest to replace '_'===> '-' -->
+    <div class="goods_classification">
+        <el-card shadow="always" body-style="0px" style="margin: 8px">
+            <!-- <emo-table /> -->
+            <!-- <emo-pagination style="margin-top: 15px" /> -->
+            goods_classification page
+        </el-card>
     </div>
 </template>
 <script>
+// import EmoTable from "@/components/table/index";
 export default {
     name: "GoodsClassification",
+    // components: {
+    //     EmoTable,
+    // },
 };
 </script>
 <style lang='less' scoped>
+.goods_classification {
+    height: 100%;
+    width: calc(100% - 160px);
+    float: right;
+    overflow-y: auto;
+}
 </style>
