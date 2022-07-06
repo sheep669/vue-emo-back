@@ -12,7 +12,7 @@ npm install
 ```
 ### 进入到server文件夹,cmd打开使用如下命令启动服务端
 ```
-json-server --watch .\data.json
+json-server --watch .\menu.json
 ```
 ### 编译运行
 ```
@@ -22,3 +22,9 @@ npm run serve
 >已完成大致设计，解决各色bug
 
 >项目未成形，持续赶工中 ......
+
+## 项目启动步骤
+### vue页面生成器    进入到server文件夹
+```
+node ./createVuePage.js
+```
