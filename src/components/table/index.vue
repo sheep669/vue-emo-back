@@ -2,17 +2,21 @@
     <div class="emo-table">
         <el-table
             :data="table_data"
-            style="width: 95.5%"
+            style="width: 100%"
             border
             max-width="250"
+            height="500"
         >
+            <!-- 表头checkbox选框默认设置 -->
             <el-table-column
                 v-if="table_config.checkbox"
                 type="selection"
                 width="55"
+                fixed
             >
             </el-table-column>
             <template v-for="item in table_config.thead">
+                <!-- 数据类型 switch  -->
                 <el-table-column
                     v-if="item.type === 'switch'"
                     :key="item.prop"
@@ -22,7 +26,6 @@
                 >
                     <template slot-scope="scope">
                         <el-switch
-                            :disabled="switch_disabled == scope.row.id"
                             @change="switchChange(scope.row)"
                             v-model="scope.row.status"
                             active-value="1"
@@ -33,6 +36,7 @@
                         </el-switch>
                     </template>
                 </el-table-column>
+                <!-- 数据类型 function  -->
                 <el-table-column
                     v-else-if="item.type === 'function'"
                     :key="item.prop"
@@ -47,6 +51,7 @@
                         }}</span>
                     </template>
                 </el-table-column>
+                <!-- 数据类型 image  -->
                 <el-table-column
                     v-else-if="item.type === 'image'"
                     :key="item.prop"
@@ -62,15 +67,33 @@
                         ></el-image>
                     </template>
                 </el-table-column>
+                <!-- 普通类型 -->
                 <el-table-column
                     v-else
                     :key="item.prop"
                     :label="item.label"
                     :prop="item.prop"
                     :width="item.width"
+                    :fixed="item.fixed"
                     show-overflow-tooltip
                 ></el-table-column>
             </template>
+            <!-- 操作栏 默认设置 -->
+            <el-table-column label="操作" fixed="right" width="150">
+                <template slot-scope="scope">
+                    <el-button
+                        size="mini"
+                        @click="handleEdit(scope.$index, scope.row)"
+                        >编辑</el-button
+                    >
+                    <el-button
+                        size="mini"
+                        type="danger"
+                        @click="handleDelete(scope.$index, scope.row)"
+                        >删除</el-button
+                    >
+                </template>
+            </el-table-column>
         </el-table>
     </div>
 </template>
@@ -78,7 +101,7 @@
 <script>
 import { getTableData } from "@/utils/http";
 export default {
-    name: "EmoTableFeng",
+    name: "EmoTable",
     data() {
         return {
             table_data: [],
@@ -87,7 +110,6 @@ export default {
                 checkbox: "",
                 url: ``,
             },
-            switch_disabled: 222,
         };
     },
     props: {
@@ -106,9 +128,14 @@ export default {
                     this.table_config[key] = this.config[key];
                 }
             }
-            //配置完成后再去调用
+            /**
+             * 配置完table表头后再去调用
+             */
             this.getData(this.table_config.url);
         },
+        /**
+         * 请求table数据
+         */
         getData(url_param) {
             let _this = this;
             getTableData(url_param).then((res) => {
@@ -128,16 +155,8 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-.emo-table {
-    width: 1250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-left: 12px;
-}
+<style lang="less" scoped>
 .el-table {
-    margin-bottom: 5px;
+    height: 500px;
 }
 </style>
