@@ -3,7 +3,7 @@
  * @Description: ReadMe
  * @Date: 2022-06-26 21:29:25
 -->
-# vue-admin
+# vue-emo-back
 >#### 描述：一个线上社区团购的后台
 ## 项目启动步骤
 ### 安装依赖
