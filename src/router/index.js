@@ -1,3 +1,8 @@
+/*
+ * @Author: sheep669
+ * @Description: 路由文件
+ * @Date: 2022-06-26 21:46:01
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { getMenuData } from "@/utils/http";
@@ -6,21 +11,7 @@ import store from '@/store/index.js'
 Vue.use(VueRouter)
 
 
-const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/home',
-  // },
-  // {
-  //   path: '/home',
-  //   name: 'home',
-  //   redirect: '',
-  //   component: () => import('@/views/home/index.vue'),
-  //   meta: {
-  //     title: "首页"
-  //   },
-  // },
-]
+const routes = []
 
 
 const router = new VueRouter({
@@ -43,7 +34,6 @@ router.beforeEach(async (to, from, next) => {
     //跳转
     next({ ...to })
   } else {
-    console.log('routes', routes)
     next();
   }
 })

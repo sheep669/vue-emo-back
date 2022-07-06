@@ -24,6 +24,7 @@
             "children": [
                 {
                     "detail_title": "团长",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "团长管理",
@@ -48,6 +49,7 @@
             "children": [
                 {
                     "detail_title": "商品管理",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "出库中",
@@ -97,6 +99,7 @@
             "children": [
                 {
                     "detail_title": "订单",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "所有订单",
@@ -151,6 +154,7 @@
             "children": [
                 {
                     "detail_title": "财务",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "团长结算",
@@ -230,6 +234,7 @@
             "children": [
                 {
                     "detail_title": "配送",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "生成配送单",
@@ -259,6 +264,7 @@
             "children": [
                 {
                     "detail_title": "售后",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "所有售后",
@@ -335,6 +341,7 @@
             "children": [
                 {
                     "detail_title": "权限",
+                    "hidden": true,
                     "submenu": [
                         {
                             "submenu_title": "用户权限查看",
