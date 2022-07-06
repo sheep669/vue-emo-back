@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         getSubMenuData() {
-            console.log("全部路由", this.$router.options.routes);
+            // console.log("全部路由", this.$router.options.routes);
             this.navData.forEach((v) => {
                 //按需提取子路由
                 if (v.name == "replace2") {

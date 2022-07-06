@@ -24,11 +24,11 @@ router.beforeEach(async (to, from, next) => {
     //异步请求，拿到数据后再处理
     // 发送请求
     let res = await getMenuData("/get_menu_data");
-    console.log('res.data', res.data)
+    // console.log('res.data', res.data)
     // 动态添加
     let dynamicRoutes = addR(res.data);
     router.addRoutes(dynamicRoutes); //动态添加路由
-    console.log('routes', routes)
+    // console.log('routes', routes)
     //缓存数据
     store.dispatch('SETNAV', res.data);
     //跳转
@@ -40,7 +40,7 @@ router.beforeEach(async (to, from, next) => {
 
 function addR(data) {
   data.forEach(v => {
-    console.log("=>", v)
+    // console.log("=>", v)
     if (!v.redirect) {
       routes.push({
         path: v.path,
