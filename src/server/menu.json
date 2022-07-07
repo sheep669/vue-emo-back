@@ -491,5 +491,25 @@
             "remark": "来自小渔村,是个小码农",
             "apply_time": "2046-05-02"
         }
+    ],
+    "get_rank_data": [
+        {
+            "ranking": 1,
+            "store_name": "小渔村",
+            "phone_number": "13203034344",
+            "commission_balance": "2元"
+        },
+        {
+            "ranking": 2,
+            "store_name": "小渔村",
+            "phone_number": "13203034344",
+            "commission_balance": "2元"
+        },
+        {
+            "ranking": 3,
+            "store_name": "小渔村",
+            "phone_number": "13203034344",
+            "commission_balance": "2元"
+        }
     ]
 }
