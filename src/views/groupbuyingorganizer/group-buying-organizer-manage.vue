@@ -12,6 +12,45 @@
             style="margin: 8px"
             class="main"
         >
+            <div class="filter-form">
+                <el-row>
+                    <el-col :span="18">
+                        <el-form
+                            ref="form"
+                            :model="form"
+                            label-width="100px"
+                            class="emo-form-inline"
+                        >
+                            <el-form-item label="团长姓名">
+                                <el-input
+                                    v-model="form.group_buying_organizer_name"
+                                    placeholder="请输入姓名"
+                                ></el-input>
+                            </el-form-item>
+                            <el-form-item label="提货地址">
+                                <el-input
+                                    v-model="form.receiver_address"
+                                    placeholder="请输入地址"
+                                ></el-input>
+                            </el-form-item>
+                            <el-form-item label="联系方式">
+                                <el-input
+                                    v-model="form.phone_number"
+                                    placeholder="请输入手机号"
+                                ></el-input>
+                            </el-form-item>
+                            <el-button type="danger" class="serach"
+                                >搜索</el-button
+                            >
+                        </el-form>
+                    </el-col>
+                    <el-col :span="6">
+                        <div class="pull-right">
+                            <el-button type="danger">添加团长信息</el-button>
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
             <emo-table :config="table_config" />
             <emo-pagination style="margin-top: 15px" />
         </el-card>
@@ -28,6 +67,11 @@ export default {
     },
     data() {
         return {
+            form: {
+                group_buying_organizer_name: "",
+                receiver_address: "",
+                phone_number: "",
+            },
             table_config: {
                 thead: [
                     {
@@ -78,5 +122,16 @@ export default {
     width: calc(100% - 160px);
     float: right;
     overflow-y: auto;
+}
+.emo-form-inline {
+    display: flex;
+    justify-content: space-evenly;
+}
+.pull-right {
+    float: right;
+}
+.serach {
+    height: 40px;
+    margin-left: 12px;
 }
 </style>

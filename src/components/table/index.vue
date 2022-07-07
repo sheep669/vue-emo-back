@@ -6,6 +6,7 @@
             border
             max-width="250"
             height="500"
+            empty-text="没有数据！"
         >
             <!-- 表头checkbox选框默认设置 -->
             <el-table-column
@@ -173,13 +174,27 @@ export default {
     },
     watch: {
         config: {
-            handler(newValue) {
+            handler() {
+                /**
+                 * 有值新值进来，进行初始化配置
+                 */
                 this.initConfig();
-                console.log("newValue", newValue);
             },
             immediate: true,
         },
     },
+    /**
+     * 去掉监听打印
+     * watch: {
+     *      config: {
+     *            handler(newValue) {
+     *            this.initConfig();
+     *            console.log("newValue", newValue);
+     *          },
+     *      immediate: true,
+     *              },
+     *         },
+     */
 };
 </script>
 
