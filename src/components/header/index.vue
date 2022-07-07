@@ -19,7 +19,7 @@
                     <el-tooltip
                         effect="dark"
                         content="打开全屏"
-                        placement="right"
+                        placement="left"
                     >
                         <i
                             v-show="fullscreen === false"
@@ -31,7 +31,7 @@
                     <el-tooltip
                         effect="dark"
                         content="退出全屏"
-                        placement="right"
+                        placement="left"
                     >
                         <i
                             v-show="fullscreen === true"
