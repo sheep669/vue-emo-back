@@ -7,27 +7,68 @@
     <div id="emo-header">
         <div class="logo">线上社区团购系统</div>
         <div class="tool">
-            <div class="fullscreen">
-                <el-tooltip effect="dark" content="打开全屏" placement="right">
-                    <i
-                        v-show="fullscreen === false"
-                        class="el-icon-full-screen"
-                        @click="fullOrEscScreen"
-                        style="font-size: 25px; font-weight: 600"
-                    ></i>
-                </el-tooltip>
-                <el-tooltip effect="dark" content="退出全屏" placement="right">
-                    <i
-                        v-show="fullscreen === true"
-                        class="el-icon-rank"
-                        @click="fullOrEscScreen"
-                        style="font-size: 25px; font-weight: 600"
-                    ></i>
-                </el-tooltip>
+            <div class="left">
+                <el-breadcrumb separator="/">
+                    <el-breadcrumb-item :to="{ path: '/' }"
+                        >首页</el-breadcrumb-item
+                    >
+                </el-breadcrumb>
             </div>
-            <div class="btns">
-                <el-button type="primary">退出</el-button>
-                <el-button type="primary">sheep669</el-button>
+            <div class="right">
+                <div class="fullscreen">
+                    <el-tooltip
+                        effect="dark"
+                        content="打开全屏"
+                        placement="right"
+                    >
+                        <i
+                            v-show="fullscreen === false"
+                            class="el-icon-full-screen"
+                            @click="fullOrEscScreen"
+                            style="font-size: 25px; font-weight: 400"
+                        ></i>
+                    </el-tooltip>
+                    <el-tooltip
+                        effect="dark"
+                        content="退出全屏"
+                        placement="right"
+                    >
+                        <i
+                            v-show="fullscreen === true"
+                            class="el-icon-rank"
+                            @click="fullOrEscScreen"
+                            style="font-size: 25px; font-weight: 400"
+                        ></i>
+                    </el-tooltip>
+                </div>
+                <div class="notice">
+                    <el-badge value="new" class="item">
+                        <el-button size="mini">通知</el-button>
+                    </el-badge>
+                </div>
+                <div class="info">
+                    <div class="avatar">
+                        <el-avatar
+                            :size="50"
+                            src="https://empty"
+                            @error="errorHandler"
+                        >
+                            <img src="../../assets/images/tx.png" />
+                        </el-avatar>
+                        <el-dropdown>
+                            <span class="el-dropdown-link"
+                                ><i
+                                    class="el-icon-arrow-down el-icon--right"
+                                ></i>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item>个人信息</el-dropdown-item>
+                                <el-dropdown-item>退出登陆</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                    </div>
+                    <span class="user">admin</span>
+                </div>
             </div>
         </div>
     </div>
@@ -41,6 +82,7 @@ export default {
         };
     },
     methods: {
+        errorHandler() {},
         fullOrEscScreen() {
             let element = document.documentElement;
             // 判断是否已经是全屏
@@ -94,7 +136,29 @@ export default {
 .fullscreen {
     margin-left: 9px;
 }
-.btns {
-    margin-right: 9px;
+.right {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .user {
+        line-height: 60px;
+        margin-right: 24px;
+    }
+}
+.info {
+    width: 160px;
+    display: flex;
+    justify-content: space-around;
+}
+.notice {
+    margin-right: 25px;
+    margin-left: 12px;
+}
+.avatar {
+    margin-top: 6px;
+}
+.el-breadcrumb {
+    margin-left: 8px;
 }
 </style>
