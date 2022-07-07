@@ -27,7 +27,11 @@
                     <template slot-scope="scope">
                         <el-switch
                             @change="switchChange(scope.row)"
-                            v-model="scope.row.status"
+                            :disabled="scope.row.user_id == switch_disabled"
+                            v-model="
+                                scope.row
+                                    .recommend_group_buying_organizer_status
+                            "
                             active-value="1"
                             inactive-value="0"
                             active-color="#13ce66"
@@ -83,12 +87,14 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
+                        :disabled="scope.row.user_id == edit_btn_disabled"
                         @click="handleEdit(scope.$index, scope.row)"
                         >编辑</el-button
                     >
                     <el-button
                         size="mini"
                         type="danger"
+                        :disabled="scope.row.user_id == del_btn_disabled"
                         @click="handleDelete(scope.$index, scope.row)"
                         >删除</el-button
                     >
@@ -110,6 +116,9 @@ export default {
                 checkbox: "",
                 url: ``,
             },
+            switch_disabled: "",
+            edit_btn_disabled: "",
+            del_btn_disabled: "",
         };
     },
     props: {
@@ -119,8 +128,27 @@ export default {
         },
     },
     methods: {
+        handleEdit(index, row) {
+            console.log(index, row);
+            this.edit_btn_disabled = row.user_id;
+            //处理完恢复
+            // this.edit_btn_disabled = "";
+        },
+        handleDelete(index, row) {
+            console.log(index, row);
+            this.del_btn_disabled = row.user_id;
+            //处理完恢复
+            // this.del_btn_disabled = "";
+        },
         switchChange(data) {
-            console.log(data);
+            /**
+             * update 通过user_id更新数据库的 recommend_group_buying_organizer_status
+             */
+            // console.log(data.recommend_group_buying_organizer_status);
+            // console.log(data.user_id);
+            this.switch_disabled = data.user_id;
+            //处理完成后,恢复可选状态
+            // this.switch_disabled = "";
         },
         initConfig() {
             for (let key in this.config) {
