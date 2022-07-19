@@ -50,8 +50,6 @@
                     <div class="avatar">
                         <el-avatar
                             :size="50"
-                            src="https://empty"
-                            @error="errorHandler"
                         >
                             <img src="../../assets/images/tx.png" />
                         </el-avatar>
@@ -82,7 +80,6 @@ export default {
         };
     },
     methods: {
-        errorHandler() {},
         fullOrEscScreen() {
             let element = document.documentElement;
             // 判断是否已经是全屏

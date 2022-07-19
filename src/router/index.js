@@ -5,13 +5,30 @@
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { getMenuData } from "@/utils/http";
+import { getMenuData } from "@/utils/http"
 import store from '@/store/index.js'
+import Layout from '@/components/layout/index.vue'
+import EmoLogin from '@/views/login/index.vue'
+import EmoRegister from '@/views/register/index.vue'
 
 Vue.use(VueRouter)
 
 
-const routes = []
+const routes = [
+  {
+    path: '',
+    component: Layout,
+    children: []
+  },
+  {
+    path: '/login',
+    component: EmoLogin
+  },
+  {
+    path: '/register',
+    component: EmoRegister
+  }
+]
 
 
 const router = new VueRouter({
@@ -41,22 +58,12 @@ router.beforeEach(async (to, from, next) => {
 function addR(data) {
   data.forEach(v => {
     // console.log("=>", v)
-    if (!v.redirect) {
-      routes.push({
-        path: v.path,
-        name: v.name,
-        component: () => import("../views" + v.component + "/index.vue"),
-        meta: { title: v.title }
-      })
-    } else {
-      routes.push({
-        path: v.path,
-        redirect: v.redirect,
-        name: v.name,
-        component: () => import("../views" + v.component + "/index.vue"),
-        meta: { title: v.title }
-      })
-    }
+    routes[0].children.push({
+      path: v.path,
+      name: v.name,
+      component: () => import("../views" + v.component + "/index.vue"),
+      meta: { title: v.title }
+    })
   })
   return routes
 }
